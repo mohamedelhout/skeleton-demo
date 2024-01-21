@@ -1,0 +1,132 @@
+<div class="modal-content">
+  <div class="modal-header">
+    <h4 class="modal-title">
+      {{ "products.update-product.header-title" | translate }}
+    </h4>
+    <a (click)="closeModal()">×</a>
+  </div>
+  <div class="modal-body">
+    <form #editForm="ngForm">
+      <div class="row" *ngIf="editRequest">
+        <div class="col-md-12">
+          <div class="form-group">
+            <label>{{ "products.update-product.title" | translate }}</label>
+            <input
+              type="text"
+              class="form-control"
+              name="title"
+              placeholder="{{ 'products.update-product.title' | translate }}"
+              required
+              [(ngModel)]="editRequest.title"
+              #titleInp="ngModel"
+            />
+            <span
+              class="help-block text-danger"
+              *ngIf="(titleInp.dirty || titleInp.touched) && titleInp.invalid"
+            >
+              <span *ngIf="titleInp?.hasError('required')">
+                {{ "products.update-product.title-required-error" | translate }}
+              </span>
+            </span>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="form-group">
+            <label>{{ "products.create-product.price" | translate }}</label>
+            <input
+              type="number"
+              class="form-control"
+              name="price"
+              placeholder="{{ 'products.create-product.price' | translate }}"
+              pattern="^[1-9]\d*(\.\d{1,2})?$"
+              [min]="minimumPrice"
+              required
+              [(ngModel)]="editRequest.price"
+              #priceInp="ngModel"
+            />
+            <span
+              class="help-block text-danger"
+              *ngIf="priceInp && (priceInp.dirty || priceInp.touched)"
+            >
+              <span *ngIf="priceInp?.hasError('required')">
+                {{ "products.update-product.price-required-error" | translate }}
+              </span>
+              <span *ngIf="priceInp?.hasError('min')">
+                {{
+                  "products.update-product.price-min-error"
+                    | translate : { min: priceInp.getError("min").min }
+                }}</span
+              >
+              <span *ngIf="priceInp?.hasError('pattern')">
+                {{ "products.update-product.price-error" | translate }}</span
+              >
+            </span>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="category">{{
+              "products.update-product.category" | translate
+            }}</label>
+            <ng-select
+              id="category"
+              [items]="categories"
+              name="category"
+              [searchable]="false"
+              [clearable]="false"
+              required
+              [(ngModel)]="editRequest.category"
+              #categoryInp="ngModel"
+            ></ng-select>
+            <span
+              *ngIf="
+                (categoryInp.dirty || categoryInp.touched) &&
+                categoryInp.invalid
+              "
+              class="help-block text-danger"
+            >
+              <span *ngIf="categoryInp.hasError('required')">
+                {{
+                  "products.update-product.category-required-error" | translate
+                }}
+              </span>
+            </span>
+          </div>
+        </div>
+
+        <div class="col-md-12">
+          <div class="form-group">
+            <label for="desc">{{
+              "products.update-product.description" | translate
+            }}</label>
+            <textarea
+              placeholder="{{
+                'products.update-product.description' | translate
+              }}"
+              class="form-control"
+              name="description"
+              rows="3"
+              [(ngModel)]="editRequest.description"
+              #descriptionInp="ngModel"
+            ></textarea>
+          </div>
+        </div>
+
+        <div class="col-md-12">
+          <div class="card-box text-center">
+            <button
+              type="button"
+              style="min-width: 150px"
+              class="btn btn-info waves-effect mb-2 waves-light btn-rounded"
+              (click)="editProduct(editForm)"
+            >
+              {{ "products.update-product.edit-btn" | translate }}
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

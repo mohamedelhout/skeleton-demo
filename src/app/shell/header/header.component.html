@@ -1,0 +1,19 @@
+<div class="row text-center mb-4">
+  <div class="col-md-12">
+    <h4 class="text-danger">Footer</h4>
+  </div>
+  <div class="col-md-3" *ngIf="selectedLanguage">
+    <div class="form-group">
+      <label>Language</label>
+      <ng-select
+        [items]="languages"
+        name="selectedLang"
+        [searchable]="false"
+        [clearable]="false"
+        [(ngModel)]="selectedLanguage"
+        #languagesDdl="ngModel"
+        (change)="onLanguageChanges()"
+      ></ng-select>
+    </div>
+  </div>
+</div>

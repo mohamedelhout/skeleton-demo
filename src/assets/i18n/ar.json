@@ -1,0 +1,43 @@
+{
+  "common": {
+    "dashboard": {
+      "hello": "اختبار"
+    }
+  },
+  "products": {
+    "create-product": {
+      "title": "العنوان",
+      "title-required-error": "العنوان مطلوب",
+      "price": "السعر",
+      "price-required-error": "السعر مطلوب",
+      "price-min-error": "اقل قيمة للسعر هي {{min}}",
+      "category": "الصنف",
+      "category-required-error": "الصنف مطلوب",
+      "description": "الوصف",
+      "save-btn": "حفظ"
+    },
+    "products-list": {
+      "create-btn": "إنشاء منتج",
+      "ID": "الرقم التعريفي",
+      "title": "العنوان",
+      "price": "السعر",
+      "category": "الصنف",
+      "update-btn": "تعديل",
+      "delete-btn": "حذف",
+      "not-found": "لا يوجد منجات ..."
+    },
+    "update-product": {
+      "header-title": "إنشاء منتج",
+      "title": "العنوان",
+      "title-required-error": "العنوان مطلوب",
+      "price": "السعر",
+      "price-required-error": "السعر مطلوب",
+      "price-min-error": "اقل قيمة للسعر هي {{min}}",
+      "price-error": "السعر غير صحيح",
+      "category": "الصنف",
+      "category-required-error": "الصنف مطلوب",
+      "description": "الوصف",
+      "edit-btn": "تعديل"
+    }
+  }
+}

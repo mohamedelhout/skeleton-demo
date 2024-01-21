@@ -1,0 +1,55 @@
+<div class="row">
+  <div class="col-md-12 text-center">
+    <button class="btn btn-primary" (click)="goToCreate()">
+      {{ "products.products-list.create-btn" | translate }}
+    </button>
+  </div>
+  <div class="col-md-12">
+    <div class="table-responsive">
+      <table class="table table-centered table-striped">
+        <thead>
+          <tr>
+            <th>{{ "products.products-list.ID" | translate }}</th>
+            <th>{{ "products.products-list.title" | translate }}</th>
+            <th>{{ "products.products-list.price" | translate }}</th>
+            <th>{{ "products.products-list.category" | translate }}</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <ng-container
+            *ngIf="products && products.length > 0; else no_products"
+          >
+            <tr *ngFor="let product of products; let productIndex = index">
+              <td>{{ product.id }}</td>
+              <td>{{ product.title }}</td>
+              <td>{{ product.price }}</td>
+              <td>{{ product.category }}</td>
+              <td>
+                <button
+                  class="btn btn-info"
+                  (click)="onUpdateProduct(product, productIndex)"
+                >
+                  {{ "products.products-list.update-btn" | translate }}
+                </button>
+                <button
+                  class="btn btn-danger"
+                  (click)="onDeleteProduct(productIndex)"
+                >
+                  {{ "products.products-list.delete-btn" | translate }}
+                </button>
+              </td>
+            </tr>
+          </ng-container>
+          <ng-template #no_products>
+            <tr class="text-center">
+              <td colspan="5">
+                {{ "products.products-list.not-found" | translate }}
+              </td>
+            </tr>
+          </ng-template>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

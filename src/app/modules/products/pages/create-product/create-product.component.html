@@ -1,0 +1,126 @@
+<div class="row">
+  <div class="col-xl-12">
+    <div class="card">
+      <div class="card-body">
+        <form [formGroup]="createForm" (ngSubmit)="onCreateProduct()">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="title">{{
+                  "products.create-product.title" | translate
+                }}</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  name="title"
+                  id="title"
+                  placeholder="{{
+                    'products.create-product.title' | translate
+                  }}"
+                  formControlName="title"
+                />
+                <span
+                  *ngIf="
+                    (titleInp.dirty || titleInp.touched) && titleInp.invalid
+                  "
+                  class="help-block text-danger"
+                >
+                  <span *ngIf="titleInp.hasError('required')">
+                    {{
+                      "products.create-product.title-required-error" | translate
+                    }}
+                  </span>
+                </span>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="price">{{
+                  "products.create-product.price" | translate
+                }}</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  name="price"
+                  id="price"
+                  placeholder="{{
+                    'products.create-product.price' | translate
+                  }}"
+                  formControlName="price"
+                />
+                <span
+                  *ngIf="
+                    (priceInp.dirty || priceInp.touched) && priceInp.invalid
+                  "
+                  class="help-block text-danger"
+                >
+                  <span *ngIf="priceInp.hasError('required')">
+                    {{
+                      "products.create-product.price-required-error" | translate
+                    }}
+                  </span>
+                  <span *ngIf="priceInp.hasError('min')">
+                    {{
+                      "products.create-product.price-min-error"
+                        | translate : { min: priceInp.getError("min").min }
+                    }}
+                  </span>
+                </span>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="category">{{
+                  "products.create-product.category" | translate
+                }}</label>
+                <ng-select
+                  id="category"
+                  [items]="categories"
+                  name="category"
+                  [searchable]="false"
+                  [clearable]="false"
+                  formControlName="category"
+                ></ng-select>
+                <span
+                  *ngIf="
+                    (categoryInp.dirty || categoryInp.touched) &&
+                    categoryInp.invalid
+                  "
+                  class="help-block text-danger"
+                >
+                  <span *ngIf="categoryInp.hasError('required')">
+                    {{
+                      "products.create-product.category-required-error"
+                        | translate
+                    }}
+                  </span>
+                </span>
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div class="form-group">
+                <label for="desc">{{
+                  "products.create-product.description" | translate
+                }}</label>
+                <textarea
+                  placeholder="{{
+                    'products.create-product.description' | translate
+                  }}"
+                  class="form-control"
+                  name="description"
+                  rows="3"
+                  formControlName="description"
+                ></textarea>
+              </div>
+            </div>
+            <div class="col-md-12 text-center">
+              <button type="submit" class="btn btn-success">
+                {{ "products.create-product.save-btn" | translate }}
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,43 @@
+{
+  "common": {
+    "dashboard": {
+      "hello": "Hello"
+    }
+  },
+  "products": {
+    "create-product": {
+      "title": "Title",
+      "title-required-error": "Title is required",
+      "price": "Price",
+      "price-required-error": "Price is required",
+      "price-min-error": "Price minimum value is {{min}}",
+      "category": "Category",
+      "category-required-error": "Category is required",
+      "description": "Description",
+      "save-btn": "Save"
+    },
+    "products-list": {
+      "create-btn": "Create Product",
+      "ID": "ID",
+      "title": "Title",
+      "price": "Price",
+      "category": "Category",
+      "update-btn": "Update",
+      "delete-btn": "Delete",
+      "not-found": "No Products Found ..."
+    },
+    "update-product": {
+      "header-title": "Create Product",
+      "title": "Title",
+      "title-required-error": "Title is required",
+      "price": "Price",
+      "price-required-error": "Price is required",
+      "price-min-error": "Price minimum value is {{min}}",
+      "price-error": "Invalid price value",
+      "category": "Category",
+      "category-required-error": "Category is required",
+      "description": "Description",
+      "edit-btn": "Update"
+    }
+  }
+}
